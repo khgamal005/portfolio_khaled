@@ -43,7 +43,7 @@ setTimeout(() => {
       <h2 className="head-text">My Creative <span>Portfolio</span> Section</h2>
 
       <div className="app__work-filter">
-        {['Html/Css', 'Sass','vanilla js','React JS', 'All'].map((item, index) => (
+        {['Html/Css', 'Sass','vanilla js','Animation' ,'React JS', 'All'].map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
