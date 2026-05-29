@@ -84,82 +84,80 @@
   width: 35px;
   height: 35px;
   border-radius: 50%;
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--secondary-color);
-  transition: all 3s;
   cursor: pointer;
-
-
 
   svg {
     width: 70%;
     height: 70%;
     color: var(--white-color);
-    transition: all 5s;
-
   }
 
   div {
-    position: absolute;
-    top: 80%;
-    bottom: 0;
+    position: fixed;
+    top: 0;
     right: 0;
+    bottom: 0;
     z-index: 5;
 
-    padding: .05rem;
-
-    width: 80%;
+    width: 75%;
+    max-width: 350px;
     height: 100vh;
-    
+
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-end;
     flex-direction: column;
-    
-    background: url('../../assets/bgWhite.png');
-    background-color: greenyellow;
 
+    background: url('../../assets/bgWhite.png');
     background-size: cover;
     background-repeat: repeat;
-
-    /* top box shadow */
     box-shadow: 0px 0px 20px rgba(168, 168, 168, 0.15);
+
+    padding: 1rem;
 
     svg {
       width: 35px;
       height: 35px;
       color: var(--secondary-color);
-      margin: 0.5rem 1rem;
+      margin: 0.5rem 1rem 2rem auto;
     }
 
     ul {
       list-style: none;
       margin: 0;
       padding: 0;
-      height: 100%;
       width: 100%;
 
       display: flex;
       justify-content: flex-start;
-      align-items: flex-start;
+      align-items: center;
       flex-direction: column;
 
       li {
-        margin: 1rem;
+        margin: 0.75rem 0;
+        width: 100%;
+        text-align: center;
 
         a {
+          display: block;
+          padding: 0.5rem 1rem;
           color: var(--gray-color);
           text-decoration: none;
-          font-size: 1rem;
+          font-size: 1.1rem;
           text-transform: uppercase;
           font-weight: 500;
-
+          border-radius: 4px;
           transition: all 0.3s ease-in-out;
 
           &:hover {
             color: var(--secondary-color);
+            background: rgba(255, 255, 255, 0.5);
           }
         }
       }
@@ -169,18 +167,7 @@
       display: none;
     }
   }
- .themeIcon {
-    cursor: pointer;
-    animation: transform 1s alternate-reverse ;
-  }
-@keyframes transform {
-  0%{
-    scale:1;
-  }
-  100%{
-    scale: 0;
-  }
-}
+
   @media screen and (min-width: 900px) {
     display: none;
   }

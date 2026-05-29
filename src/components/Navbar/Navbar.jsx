@@ -9,6 +9,11 @@ import './Navbar.scss';
 const Navbar = () => {
   const [mobile, setMobile] = useState(false);
 
+  const toggleMobile = (val) => {
+    setMobile(val);
+    document.body.style.overflow = val ? 'hidden' : '';
+  };
+
   return (
     <nav className="app__navbar">
       <motion.div className="app__navbar-logo"
@@ -40,8 +45,8 @@ const Navbar = () => {
 
       <div className="app__navbar-menu">
  
-      {mobile ?<AiOutlineClose  onClick={() => setMobile(false)}  className="themeIcon"/>:
-      <RiMenu3Line onClick={() => setMobile(true)} className="themeIcon"/>} 
+      {mobile ?<AiOutlineClose  onClick={() => toggleMobile(false)}  className="themeIcon"/>:
+      <RiMenu3Line onClick={() => toggleMobile(true)} className="themeIcon"/>} 
 
 
         {mobile && (
@@ -56,7 +61,7 @@ const Navbar = () => {
             <ul>
               {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
                 <li key={item}>
-                  <a href={`#${item}`} onClick={() => setMobile(false)}>
+                  <a href={`#${item}`} onClick={() => toggleMobile(false)}>
                     {item}
                   </a>
                 </li>
