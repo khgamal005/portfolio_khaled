@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { RiMenu3Line } from "react-icons/ri"
 import { AiOutlineClose } from "react-icons/ai"
 import { motion } from 'framer-motion';
@@ -17,47 +17,42 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <motion.div className="app__navbar-logo"
-       initial={{ scale: 0 }}
-       animate={{ rotate: 360, scale: 1 }}
-       transition={{
-         type: "tweet",
-         stiffness: 260,
-         damping: 20
-       }}
+        initial={{ scale: 0 }}
+        animate={{ rotate: 360, scale: 1 }}
+        transition={{
+          type: "tweet",
+          stiffness: 260,
+          damping: 20
+        }}
       >
         <img src={images.logo} alt="logo" />
       </motion.div>
-      <motion.ul className="app__navbar-links"
 
-        initial={{x:500}}
-        whileInView={{ x: 0 }}
-        transition={{ duration: 0.85, type: "spring",
-        stiffness: 260,
-        damping: 20}}
-      >
+      <ul className="app__navbar-links">
         {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
           <li className="app__flex p-text" key={`link-${item}`}>
             <div />
             <a href={`#${item}`}>{item}</a>
           </li>
         ))}
-      </motion.ul>
+      </ul>
 
-      <div className="app__navbar-menu">
- 
-      {mobile ?<AiOutlineClose  onClick={() => toggleMobile(false)}  className="themeIcon"/>:
-      <RiMenu3Line onClick={() => toggleMobile(true)} className="themeIcon"/>} 
+      <button className="app__navbar-menu-btn" onClick={() => toggleMobile(true)} aria-label="Open menu">
+        <RiMenu3Line />
+      </button>
 
-
-        {mobile && (
+      {mobile && (
+        <>
+          <div className="app__navbar-overlay" onClick={() => toggleMobile(false)} />
           <motion.div
-          whileInView={{ x: [300, 0 ]  }}
-          transition={{ duration: 1,
-          stiffness: 260,
-          damping: 20
-        
-        }}
+            className="app__navbar-sidebar"
+            initial={{ x: 300 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
           >
+            <button className="app__navbar-sidebar-close" onClick={() => toggleMobile(false)} aria-label="Close menu">
+              <AiOutlineClose />
+            </button>
             <ul>
               {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
                 <li key={item}>
@@ -68,11 +63,8 @@ const Navbar = () => {
               ))}
             </ul>
           </motion.div>
-        )}
-
-      </div>
-
-
+        </>
+      )}
     </nav>
   );
 };
