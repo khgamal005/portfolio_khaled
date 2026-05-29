@@ -21,5 +21,19 @@ export default {
         hotspot: true,
       },
     },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Languages', value: 'languages' },
+          { title: 'Frameworks & Libraries', value: 'frameworks' },
+          { title: 'Databases & Caching', value: 'databases' },
+          { title: 'Messaging & Queues', value: 'messaging' },
+          { title: 'DevOps & Tools', value: 'devops' },
+        ],
+      },
+    },
   ],
 }
