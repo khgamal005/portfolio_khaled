@@ -130,6 +130,16 @@
     }
   }
 }
+
+.app__work-img:hover .app__work-hover {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .app__work-hover {
+    opacity: 1;
+  }
+}
 }
 
 .app__work-content {
